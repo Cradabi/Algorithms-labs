@@ -19,7 +19,7 @@ def second_task(dict,
 list_csv = []
 list_with_question = []
 dict = {}
-with open("answers.csv", encoding='utf-8') as r_file:
+with open("answers_2.csv", encoding='utf-8') as r_file:
     file_reader = csv.reader(r_file, delimiter=",")
     for row in file_reader:
         list_csv.append(row)
