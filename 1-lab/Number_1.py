@@ -1,11 +1,6 @@
-import random
-
-itemcnt = int(input('Введите число элементов списка \n'))
-maxnumb = int(input('Введите максимально возможное числовое значение элемента списка \n'))
-numtofind = int(input('Введите искомое число \n'))
-arr = random.sample(range(1, maxnumb+1), itemcnt)
-arr.sort()
-steps = 0 
+inp = input('Введите отсортированный список чисел, разделенных пробелом \n')
+arr = list(int(x) for x in inp.split())
+numtofind = int(input('Введите число из списка для поиска \n'))
 minborder = 0
 maxborder = len(arr)-1
 mid = len(arr)//2
@@ -21,7 +16,7 @@ while maxborder - minborder >= 0 and arr[mid] != numtofind:
         mid = (minborder + maxborder) // 2
         steps +=1
 if arr[mid] == numtofind:
-    print(f'Число найдено. Потребовалось шагов - {steps}, индекс искомого числа - {mid}')
+    print(f'Число найдено. Потребовалось шагов - {steps}, номер числа в списке - {mid+1}')
 else:
     print('Заданного числа нет в списке')
         
