@@ -14,6 +14,8 @@ def second_task(dict,
         if len(dict) == 1:
             for key in dict:
                 return key
+        elif len(dict) == 0:
+            return "Нет такого студента"
 
 
 list_csv = []
