@@ -4,10 +4,9 @@
 
 import random
 
-scale = 20
+scale = 4
 
-rng = [0] * 10 + [1]
-matrix = [[random.choice(rng) for x in range(scale)] for x in range(scale)]
+matrix = [[1, 0, 0, 1], [0, 1, 1, 0], [0, 1, 1, 0], [1, 0, 0, 1]]
 
 borders = {x: set() for x in range(scale)}
 
@@ -20,7 +19,7 @@ for x in range(scale):
         if matrix[x][y] == 1 and x!= y:
             borders[x].add(y)
 
-
+print(matrix)
 
 countries = {x: set() for x in range(scale)}
 
@@ -28,6 +27,7 @@ for y in range(scale):
     z = borders[y]
     for i in z:
         countries[y].add(i)
+    countries[y].add(y)
 
 for x in range(scale):
     for y in range(scale):
@@ -38,6 +38,7 @@ for x in range(scale):
                 countries[x].update(l)
                 del countries[y]
 
+print(countries)
 bob = len(countries)
 print(f'Количество стран на планете - {bob}')
  
