@@ -6,10 +6,10 @@ import random
 
 scale = 20
 
-rng = [0] * 20 + [1]
+rng = [0] * 10 + [1]
 matrix = [[random.choice(rng) for x in range(scale)] for x in range(scale)]
 
-borders = {x: [x] for x in range(scale)}
+borders = {x: set() for x in range(scale)}
 
 
 for i in range(scale):
@@ -18,7 +18,7 @@ for i in range(scale):
 for x in range(scale):
     for y in range(scale):
         if matrix[x][y] == 1 and x!= y:
-            borders[x].append(y)
+            borders[x].add(y)
 
 
 
