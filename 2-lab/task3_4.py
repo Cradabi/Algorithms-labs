@@ -3,9 +3,9 @@ def three_sum(nums):
     n = len(nums)
 
     for i in range(n):
-        for j in range(i + 1, n):
-            for k in range(j + 1, n):
-                if nums[i] + nums[j] + nums[k] == 0:
+        for j in range(n):
+            for k in range(n):
+                if i!=j and i!=k and j!=k and nums[i] + nums[j] + nums[k] == 0:
                     result.append([nums[i], nums[j], nums[k]])
 
     return result
