@@ -9,5 +9,5 @@ def insertion_sort(list_n):
     return list_n
 
 
-a = result = list(map(int, input("Введите числа: ").split()))
+a = list(map(int, input("Введите числа: ").split()))
 print(insertion_sort(a))
