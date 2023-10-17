@@ -1,13 +1,17 @@
-def insertion_sort(list_n):
-    for i in range(1, len(list_n)):
-        j = i - 1
-        num_n = list_n[i]
-        while list_n[j] > num_n and j >= 0:
-            list_n[j + 1] = list_n[j]
-            j -= 1
-        list_n[j + 1] = num_n
-    return list_n
+class Solution(object):
 
+    def arrayPairSum(self, list_n):
+        def quick_sort(a):
+            if len(a) <= 1:
+                return a
+            else:
+                pivot = a.pop()
+            lower = [x for x in a if x < pivot]
+            higher = [x for x in a if x >= pivot]
+            return quick_sort(lower) + [pivot] + quick_sort(higher)
 
-a = list(map(int, input("Введите числа: ").split()))
-print(insertion_sort(a))
+        list_n = quick_sort(list_n)
+        res = 0
+        for i in range(0, len(list_n), 2):
+            res += min(list_n[i], list_n[i + 1])
+        return res
