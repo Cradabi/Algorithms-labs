@@ -1,5 +1,5 @@
 #Блочная сортировка
-def bucket_sort(arr):
+def block_sort(arr):
     # Находим минимум и максимум в массиве
     min_val = min(arr)
     max_val = max(arr)
@@ -20,5 +20,5 @@ def bucket_sort(arr):
 
 # Пример использования
 input_array = [4, 2, 7, 1, 9, 5, 3, 10, 6]
-sorted_array = bucket_sort(input_array)
+sorted_array = block_sort(input_array)
 print("Отсортированный массив:", sorted_array)
