@@ -36,8 +36,6 @@ for x in range(len(parlist)-1, -1, -1):
                 break
             correct = False
 
-print(goodpar)
-
 if correct and len(secondpar) == parlist.count(")"):
     print('Ваш набор - правильная скобочная последовательность')
 else:
