@@ -21,7 +21,7 @@ graph = {
     'F': ['C', 'E']
 }
 
-start_node = 'A'
+start_node = 'B'
 end_node = 'E'
 shortest_path = bfs(graph, start_node, end_node)
 print(f"Кратчайший путь из {start_node} в {end_node}: {shortest_path}")
