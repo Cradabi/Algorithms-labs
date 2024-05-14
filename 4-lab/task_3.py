@@ -1,9 +1,6 @@
 import random
 import sys
 
-
-
-
 sys.setrecursionlimit(5000000)
 
 
@@ -37,8 +34,6 @@ def go(index_now, all_list, visit_list, way_list):
             go(way_list[-1], all_list, visit_list, way_list)
 
 
-
-
 visit_list = []
 x = []
 all_list = []
@@ -50,6 +45,7 @@ for i in range(15):
     x = []
 
 res = []
+fh = []
 for i in range(15):
     if all_list[i][0] == 0:
         go((i, 0), all_list, [], [])
