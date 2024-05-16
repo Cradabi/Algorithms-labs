@@ -3,7 +3,10 @@ class KeyValueStore:
         self.data = {}
 
     def add(self, key, value):
-        self.data[key] = value
+        if key in self.data:
+            self.data[key] = self.data[key] + ", " + value
+        else:
+            self.data[key] = value
 
     def remove(self, key):
         if key in self.data:
@@ -42,9 +45,16 @@ def process_operations(operations):
 operations = [
     "+key1:value1",
     "+key2:value2",
+    "+key1:value3",
     "?key1",
     "-key2",
     "?key2"
 ]
 
-process_operations(operations)
+n = int(input())
+x = []
+for i in range(n):
+    com = input()
+    x.append(com)
+
+process_operations(x)
