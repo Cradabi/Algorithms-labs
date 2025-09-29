@@ -80,19 +80,3 @@ def simulate_heist(w, v, scap, howm, runs):
         "rounds": len(all_taken),
         "items_per_round": all_taken
     }
-
-
-if __name__ == "__main__":
-    w = [1, 55, 4, 3, 2, 1]
-    v = [1, 100, 10, 35, 4, 10]
-    scap = 10
-    howm = 6
-    runs = 3
-
-    res = simulate_heist(w, v, scap, howm, runs)
-
-    print("Успешно:", res["success"])
-    print("Количество украденных предметов:", res["total_items_stolen"])
-    print("Общая ценность:", res["total_value_stolen"])
-    print("Количество заходов:", res["rounds"])
-    print("Предметы по заходам:", res["items_per_round"])

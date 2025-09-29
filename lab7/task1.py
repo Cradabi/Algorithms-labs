@@ -1,22 +1,6 @@
 import math
 from collections import defaultdict
 
-
-def generate_odd_primes(count):
-    primes = []
-    for num in range(3, 10_000, 2):
-        if len(primes) >= count:
-            break
-        if all(num % i != 0 for i in range(3, int(math.sqrt(num)) + 1, 2)):
-            primes.append(num)
-    return primes
-
-
-def primes_to_string(primes):
-    return ''.join(map(str, primes))
-
-
-
 def naive(text, key):
     n, m = len(text), len(key)
     return sum(text[i:i + m] == key for i in range(n - m + 1))
@@ -113,29 +97,3 @@ def find_most_frequent_substring(text, search_fn, start=10, end=99):
             maxcnt = cnt
             mostfreqnum = pattern
     return mostfreqnum, maxcnt
-
-
-def run_all_algorithms():
-    primes = generate_odd_primes(500)
-    primestr = primes_to_string(primes)
-
-    algorithms = {
-        "Naive": naive,
-        "Boyer-Moore-Horspool": boyer_moore_horspool,
-        "KMP": kmp,
-        "Rabin-Karp": rabin_karp
-    }
-
-    results = {}
-
-    for name, func in algorithms.items():
-        pattern, count = find_most_frequent_substring(primestr, func)
-        results[name] = (pattern, count)
-
-    return results
-
-
-if __name__ == "__main__":
-    results = run_all_algorithms()
-    for alg, (pattern, count) in results.items():
-        print(f"{alg}: {pattern} -> {count}")
