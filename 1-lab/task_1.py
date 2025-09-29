@@ -1,20 +1,23 @@
-inp = input('Введите отсортированный список чисел, разделенных пробелом \n')
-arr = list(int(x) for x in inp.split())
-numtofind = int(input('Введите число из списка для поиска \n'))
-minborder = 0
-maxborder = len(arr) - 1
-mid = len(arr) // 2
-steps = 1
-while maxborder - minborder >= 0 and arr[mid] != numtofind:
-    if numtofind > arr[mid]:
-        minborder = mid + 1
-        mid = (minborder + maxborder) // 2
+def binary_search(arr, target):
+    if not arr:
+        raise ValueError("Список не должен быть пустым")
+
+    if arr != sorted(arr):
+        raise ValueError("Список должен быть отсортирован по возрастанию")
+
+    low = 0
+    high = len(arr) - 1
+    steps = 0
+
+    while low <= high:
         steps += 1
-    else:
-        maxborder = mid - 1
-        mid = (minborder + maxborder) // 2
-        steps += 1
-if arr[mid] == numtofind:
-    print(f'Число найдено. Потребовалось шагов - {steps}, номер числа в списке - {mid + 1}')
-else:
-    print('Заданного числа нет в списке')
+        mid = (low + high) // 2
+
+        if arr[mid] == target:
+            return True, mid, steps
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return False, -1, steps
