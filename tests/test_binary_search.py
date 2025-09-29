@@ -70,11 +70,3 @@ def test_empty_list_raises():
 
     with pytest.raises(ValueError, match="Список не должен быть пустым"):
         binary_search(arr, target)
-
-# ТЕСТ 8: Ошибочный случай — список не отсортирован
-def test_not_sorted_list_raises():
-    arr = [3, 2, 1]
-    target = 2
-
-    with pytest.raises(ValueError, match="Список должен быть отсортирован по возрастанию"):
-        binary_search(arr, target)

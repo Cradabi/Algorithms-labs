@@ -2,9 +2,6 @@ def binary_search(arr, target):
     if not arr:
         raise ValueError("Список не должен быть пустым")
 
-    if arr != sorted(arr):
-        raise ValueError("Список должен быть отсортирован по возрастанию")
-
     low = 0
     high = len(arr) - 1
     steps = 0
